@@ -13,6 +13,8 @@ export const promiseExample04 = () => {
     }
   }
 
+  // https://zellwk.com/blog/async-await-in-loops/
+
   itemsLoop()
   ifItem()
 }
