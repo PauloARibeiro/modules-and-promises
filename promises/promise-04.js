@@ -1,26 +1,18 @@
 export const promiseExample04 = () => {
-  const ingredients = {
-    chocolate: '🍫',
-    sugar: '🍬',
-    flour: '🌾',
-    eggs: '🥚',
-    milk: '🥛'
-  }
+  const itemList = ['☀️', '🌙', '☯️']
 
-  const getIngredient = name => {
-    return delay(1000).then(() => ingredients[name])
-  }
-
-  const delay = ms => {
-    return new Promise(resolve => setTimeout(resolve, ms))
-  }
-
-  const loopIngredients = async () => {
-    for (let index = 0; index < ingredients.length; index++) {
-      const ingredient = await getIngredient(ingredients[index])
-      console.log(ingredient)
+  const itemsLoop = async () => {
+    for await (const item of itemList) {
+      console.log(item)
     }
   }
 
-  loopIngredients()
+  const ifItem = async () => {
+    if ((await itemList[0]) === '☀️') {
+      console.log('It is a sun')
+    }
+  }
+
+  itemsLoop()
+  ifItem()
 }
